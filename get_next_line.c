@@ -31,13 +31,13 @@ char	*get_next_line(int fd)
         else
         {
             index = ft_len(box);
-            new_box = malloc(BUFFER_SIZE);
+            new_box = malloc(BUFFER_SIZE); // may be calloc with '1'
             box = boxjoin(new_box,box);
             free(new_box);
         }
 
         read_re = read(fd, (box + index), BUFFER_SIZE);
-        
+
         if (lemme_see(box) == 1) // found /n or eof
         {
             that_line = find_line(box);
